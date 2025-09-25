@@ -3,7 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Surana SPG - Realty & Technology Solutions</title>
+  <title>Surana SPG - Realty, Technology & ERP Solutions | Jaipur, India</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Surana SPG offers custom ERP solutions, billing systems, real estate development and technology consulting in Jaipur, Rajasthan, India. Expert ERP implementation and software development services.">
+  <meta name="keywords" content="Jaipur ERP solutions, India ERP solutions, Custom ERP solutions, Jaipur Billing Solution, India billing solution, ERP software Jaipur, custom billing software, enterprise resource planning, real estate technology, Jaipur software development, Rajasthan ERP, business automation, inventory management system, accounting software India, CRM solutions Jaipur">
+  <meta name="author" content="Surana SPG">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Surana SPG - Custom ERP & Technology Solutions in Jaipur">
+  <meta property="og:description" content="Leading provider of custom ERP solutions, billing systems, and technology consulting in Jaipur, India. Specializing in real estate and business automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://suranaspg.in">
+  <meta property="og:image" content="https://suranaspg.in/logo.png">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Surana SPG - Custom ERP Solutions Jaipur">
+  <meta name="twitter:description" content="Expert ERP implementation, custom billing solutions, and technology consulting in Jaipur, Rajasthan, India.">
+  
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Surana SPG",
+    "description": "Custom ERP solutions, billing systems, real estate development and technology consulting",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "D-19/B Meera Marg, Bani Park",
+      "addressLocality": "Jaipur",
+      "addressRegion": "Rajasthan",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91 77910 27690",
+    "email": "ps.work@suranaspg.in",
+    "url": "https://suranaspg.in",
+    "serviceArea": "Jaipur, Rajasthan, India",
+    "services": ["Custom ERP Solutions", "Billing Systems", "Real Estate Development", "Technology Consulting", "Software Development"]
+  }
+  </script>
+  
   <style>
     * {
       margin: 0;
@@ -111,7 +152,7 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
     }
 
@@ -121,6 +162,12 @@
       border-radius: 8px;
       text-align: center;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     }
 
     .service-icon {
@@ -242,6 +289,10 @@
       .about-image {
         height: 200px;
       }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
@@ -269,7 +320,7 @@
   <section id="home" class="hero">
     <div class="container">
       <h1>Surana SPG</h1>
-      <p>Pioneering Excellence in Realty & Technology Solutions</p>
+      <p>Pioneering Excellence in Realty, Technology & Custom ERP Solutions</p>
       <a href="#contact" class="cta-button">Get Started</a>
     </div>
   </section>
@@ -289,9 +340,14 @@
           <p>Digital transformation, software development, and IT consulting services.</p>
         </div>
         <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Custom ERP Solutions</h3>
+          <p>Tailored ERP systems, billing solutions, and business automation software designed specifically for your organization's needs.</p>
+        </div>
+        <div class="service-card">
           <div class="service-icon">🤝</div>
           <h3>Strategic Consulting</h3>
-          <p>Bridging the gap between real estate and technology with strategic insight.</p>
+          <p>Bridging the gap between real estate and technology with strategic insight and ERP implementation expertise.</p>
         </div>
       </div>
     </div>
@@ -302,10 +358,11 @@
       <h2 class="section-title">About Us</h2>
       <div class="about-content">
         <div class="about-text">
-          <p>Surana SPG is committed to innovation at the intersection of real estate and technology. Our integrated approach ensures exceptional value.</p>
-          <p>We combine legacy experience with modern tools to deliver sustainable, smart, and strategic solutions.</p>
+          <p>Surana SPG is committed to innovation at the intersection of real estate and technology. Our integrated approach ensures exceptional value through custom ERP solutions and business automation.</p>
+          <p>We combine legacy experience with modern tools to deliver sustainable, smart, and strategic solutions including custom billing systems, inventory management, and enterprise resource planning tailored for businesses in Jaipur and across India.</p>
+          <p>Our expertise spans from real estate development to comprehensive ERP implementation, making us your one-stop solution for business growth and automation.</p>
         </div>
-        <div class="about-image">🏗️ 💡</div>
+        <div class="about-image">🏗️ 💡 ⚙️</div>
       </div>
     </div>
   </section>
@@ -323,7 +380,10 @@
             <strong>Phone:</strong> +91 77910 27690
           </div>
           <div class="contact-item">
-            <strong>Address:</strong><br/>D-19/B Meera Marg, Bani Park, Jaipur, Rajasthan
+            <strong>Address:</strong><br/>D-19/B Meera Marg, Bani Park, Jaipur, Rajasthan, India
+          </div>
+          <div class="contact-item">
+            <strong>Services Available:</strong><br/>Custom ERP Solutions, Billing Systems, Real Estate Development, Technology Consulting
           </div>
         </div>
 
@@ -342,7 +402,7 @@
   </div>
   <div class="form-group">
     <label for="message">Message</label>
-    <textarea name="message" id="message" rows="5" required></textarea>
+    <textarea name="message" id="message" rows="5" placeholder="Tell us about your ERP, billing, or technology requirements..." required></textarea>
   </div>
   <button type="submit" class="submit-btn">Send Message</button>
   <p id="formStatus" style="margin-top: 15px; color: green; display: none;">Thank you! Your message has been sent.</p>
@@ -353,7 +413,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Surana SPG. All rights reserved.</p>
+      <p>&copy; 2025 Surana SPG. All rights reserved. | Custom ERP Solutions | Jaipur, Rajasthan, India</p>
     </div>
   </footer>
 
