@@ -5,45 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Surana SPG - Realty, Technology & ERP Solutions | Jaipur, India</title>
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23667eea'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-weight='bold'>S</text></svg>">
+  
   <!-- SEO Meta Tags -->
   <meta name="description" content="Surana SPG offers custom ERP solutions, billing systems, real estate development and technology consulting in Jaipur, Rajasthan, India. Expert ERP implementation and software development services.">
   <meta name="keywords" content="Jaipur ERP solutions, India ERP solutions, Custom ERP solutions, Jaipur Billing Solution, India billing solution, ERP software Jaipur, custom billing software, enterprise resource planning, real estate technology, Jaipur software development, Rajasthan ERP, business automation, inventory management system, accounting software India, CRM solutions Jaipur">
-  <meta name="author" content="Surana SPG">
-  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#667eea">
   
   <!-- Open Graph Tags -->
-  <meta property="og:title" content="Surana SPG - Custom ERP & Technology Solutions in Jaipur">
-  <meta property="og:description" content="Leading provider of custom ERP solutions, billing systems, and technology consulting in Jaipur, India. Specializing in real estate and business automation.">
+  <meta property="og:title" content="Surana SPG - Custom ERP & Technology Solutions">
+  <meta property="og:description" content="Leading provider of custom ERP solutions, AI integration, and blockchain development in Jaipur, India">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://suranaspg.in">
-  <meta property="og:image" content="https://suranaspg.in/logo.png">
   
-  <!-- Twitter Card Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Surana SPG - Custom ERP Solutions Jaipur">
-  <meta name="twitter:description" content="Expert ERP implementation, custom billing solutions, and technology consulting in Jaipur, Rajasthan, India.">
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   
-  <!-- Local Business Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Surana SPG",
-    "description": "Custom ERP solutions, billing systems, real estate development and technology consulting",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "D-19/B Meera Marg, Bani Park",
-      "addressLocality": "Jaipur",
-      "addressRegion": "Rajasthan",
-      "addressCountry": "IN"
-    },
-    "telephone": "+91 77910 27690",
-    "email": "ps.work@suranaspg.in",
-    "url": "https://suranaspg.in",
-    "serviceArea": "Jaipur, Rajasthan, India",
-    "services": ["Custom ERP Solutions", "Billing Systems", "Real Estate Development", "Technology Consulting", "Software Development"]
-  }
-  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.css">
+  
+  <noscript>
+    <style>
+      .service-card, .project-card, .stat-box {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+    </style>
+  </noscript>
   
   <style>
     * {
@@ -53,10 +47,11 @@
     }
 
     body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      color: #2c3e50;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     .container {
@@ -65,15 +60,23 @@
       padding: 0 20px;
     }
 
+    /* Header Styles */
     header {
-      background: #fff;
-      color: #333;
-      padding: 1rem 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      color: #2c3e50;
+      padding: 1.2rem 0;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 0.8rem 0;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
     }
 
     .header-content {
@@ -85,232 +88,759 @@
     .logo {
       display: flex;
       align-items: center;
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #7daed8;
+      font-weight: 700;
+      font-size: 1.7rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 30px;
     }
 
     nav a {
-      color: #333;
+      color: #2c3e50;
       text-decoration: none;
       font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 5px 0;
       transition: color 0.3s ease;
     }
 
-    nav a:hover {
-      color: #7daed8;
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
     }
 
+    nav a:hover {
+      color: #667eea;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: #667eea;
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .mobile-menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #2c3e50;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Scroll to Top Button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .scroll-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    }
+
+    .scroll-to-top.show {
+      display: flex;
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      width: 55px;
+      height: 55px;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      z-index: 998;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    }
+
+    /* Form validation styles */
+    .form-group input:invalid:not(:placeholder-shown),
+    .form-group textarea:invalid:not(:placeholder-shown) {
+      border-color: #ef4444;
+    }
+
+    .form-group input:valid:not(:placeholder-shown),
+    .form-group textarea:valid:not(:placeholder-shown) {
+      border-color: #10b981;
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Hero Section */
     .hero {
-      background: #f0f4f8;
-      padding: 130px 0 80px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 180px 0 100px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #333;
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      font-weight: 700;
+      animation: fadeInUp 0.8s ease;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #555;
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 300;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .cta-button {
-      background: #7daed8;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 6px;
+      background: white;
+      color: #667eea;
+      padding: 15px 40px;
+      border-radius: 50px;
       text-decoration: none;
-      font-weight: 500;
-      transition: background 0.3s;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 0.8s ease 0.4s backwards;
     }
 
     .cta-button:hover {
-      background: #649bc8;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     }
 
     .section {
-      padding: 80px 0;
+      padding: 100px 0;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 3rem;
-      color: #444;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 20px;
     }
 
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #7f8c8d;
+      font-size: 1.1rem;
+      margin-bottom: 4rem;
+      font-weight: 300;
+    }
+
+    /* Services Grid */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
     }
 
     .service-card {
       background: #fff;
-      padding: 30px;
-      border-radius: 8px;
+      padding: 40px 30px;
+      border-radius: 15px;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 45px rgba(102, 126, 234, 0.25);
     }
 
     .service-icon {
-      font-size: 2rem;
-      margin-bottom: 15px;
-      color: #7daed8;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(5deg);
     }
 
     .service-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+      font-weight: 600;
     }
 
     .service-card p {
-      color: #666;
+      color: #7f8c8d;
+      line-height: 1.7;
+      font-size: 0.95rem;
     }
 
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 35px;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 45px rgba(102, 126, 234, 0.25);
+    }
+
+    .project-image {
+      height: 220px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .project-card:hover .project-image::before {
+      left: 100%;
+    }
+
+    .project-content {
+      padding: 30px;
+    }
+
+    .project-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
+    .project-category {
+      color: #667eea;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .project-content p {
+      color: #7f8c8d;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 50px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-box {
+      transition: transform 0.3s ease;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-box h3 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .stat-box p {
+      font-size: 1rem;
+      opacity: 0.95;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      background: #f8f9fa;
+      padding: 100px 0;
+    }
+
+    .testimonial-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .testimonial-slide {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      position: relative;
+    }
+
+    .testimonial-quote {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #555;
+      margin-bottom: 30px;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: #667eea;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .testimonial-role {
+      color: #95a5a6;
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    .testimonial-icon {
+      font-size: 3rem;
+      margin-bottom: 25px;
+      opacity: 0.3;
+    }
+
+    .swiper-pagination-bullet {
+      background: #667eea;
+      width: 12px;
+      height: 12px;
+      opacity: 0.3;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #667eea;
+      opacity: 1;
+      width: 30px;
+      border-radius: 6px;
+    }
+
+    /* About Section */
     .about-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 60px;
       align-items: center;
     }
 
     .about-text p {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      color: #555;
+      line-height: 1.8;
+      font-size: 1.05rem;
     }
 
     .about-image {
-      height: 300px;
-      background: #e6eff7;
-      border-radius: 8px;
+      height: 350px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      color: #7daed8;
+      font-size: 3rem;
+      color: white;
+      box-shadow: 0 15px 45px rgba(102, 126, 234, 0.3);
     }
 
+    /* Contact Section */
     .contact-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 50px;
       align-items: start;
     }
 
     .contact-info h2 {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      color: #2c3e50;
+      font-weight: 600;
     }
 
     .contact-item {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
     }
 
     .contact-item strong {
       display: block;
-      color: #555;
+      color: #2c3e50;
+      margin-bottom: 5px;
+      font-weight: 600;
     }
 
     .contact-form {
       background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       font-weight: 500;
+      color: #2c3e50;
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
       font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     }
 
     .submit-btn {
-      background: #7daed8;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border: none;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-weight: 500;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
     }
 
     .submit-btn:hover {
-      background: #649bc8;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
     }
 
+    /* Footer */
     footer {
-      background: #f1f1f1;
-      padding: 40px 0;
+      background: #2c3e50;
+      padding: 50px 0;
       text-align: center;
-      font-size: 14px;
-      color: #777;
+      color: rgba(255, 255, 255, 0.8);
     }
 
+    footer p {
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
-      .header-content,
-      nav ul,
-      .about-content,
-      .contact-content {
-        flex-direction: column;
+      .mobile-menu-toggle {
         display: flex;
-        text-align: center;
       }
 
-      .about-image {
-        height: 200px;
+      nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 50px 0;
+        transition: left 0.3s ease;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul.active {
+        left: 0;
+      }
+
+      nav a {
+        font-size: 1.1rem;
+        padding: 15px 0;
+      }
+
+      .header-content {
+        gap: 0;
       }
 
       .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .about-content,
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-image {
+        height: 250px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-title {
         font-size: 2rem;
+      }
+
+      .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 75px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .services-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+      }
+
+      .contact-form {
+        padding: 25px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <header id="header">
     <div class="container">
       <div class="header-content">
         <div class="logo">
-  <img src="logo.png" alt="Surana SPG Logo" style="height: 80px; margin-right: 12px;" />
-  Surana SPG
-</div>
+          Surana SPG
+        </div>
+        <div class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <nav>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul id="navMenu">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -318,16 +848,19 @@
   </header>
 
   <section id="home" class="hero">
-    <div class="container">
-      <h1>Surana SPG</h1>
-      <p>Pioneering Excellence in Realty, Technology & Custom ERP Solutions</p>
-      <a href="#contact" class="cta-button">Get Started</a>
+    <div class="hero-content">
+      <div class="container">
+        <h1>Surana SPG</h1>
+        <p>Pioneering Excellence in Realty, Technology & Custom ERP Solutions</p>
+        <a href="#contact" class="cta-button">Get Started</a>
+      </div>
     </div>
   </section>
 
   <section id="services" class="section">
     <div class="container">
       <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Comprehensive solutions tailored to your business needs</p>
       <div class="services-grid">
         <div class="service-card">
           <div class="service-icon">🧠</div>
@@ -354,8 +887,7 @@
           <h3>Strategic Consulting</h3>
           <p>Bridging the gap between real estate and technology with strategic insight and ERP implementation expertise.</p>
         </div>
-        
-                <div class="service-card">
+        <div class="service-card">
           <div class="service-icon">🏢</div>
           <h3>Real Estate Development</h3>
           <p>Complete real estate solutions from development to investment and portfolio management.</p>
@@ -364,9 +896,167 @@
     </div>
   </section>
 
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <h3>50+</h3>
+          <p>Projects Completed</p>
+        </div>
+        <div class="stat-box">
+          <h3>5+</h3>
+          <p>Years of Experience</p>
+        </div>
+        <div class="stat-box">
+          <h3>30+</h3>
+          <p>Total Clients Catered</p>
+        </div>
+        <div class="stat-box">
+          <h3>30+</h3>
+          <p>⭑⭑⭑⭑⭑ Reviews</p>
+        </div>
+        <div class="stat-box">
+          <h3>$100K+</h3>
+          <p>Projects Value</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Showcasing our expertise across diverse industries</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">🤖</div>
+          <div class="project-content">
+            <h3>Ash Inc</h3>
+            <p class="project-category">AI Job Hunt Dashboard</p>
+            <p>Advanced AI-powered job hunting dashboard with intelligent matching algorithms and seamless Supabase integration for real-time data management.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">💰</div>
+          <div class="project-content">
+            <h3>Torque Finance</h3>
+            <p class="project-category">DeFi Application</p>
+            <p>Comprehensive DeFi platform integrating multiple protocols including GMX, Stargate, and UniSwap for seamless cross-chain financial operations.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🦈</div>
+          <div class="project-content">
+            <h3>Alpha Sharks</h3>
+            <p class="project-category">Smart Contract Development</p>
+            <p>Robust smart contract architecture for NFT marketplace with advanced tokenomics and secure blockchain implementation.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🌊</div>
+          <div class="project-content">
+            <h3>Sea Token & Staking</h3>
+            <p class="project-category">Web3 & Smart Contract</p>
+            <p>Complete tokenomics solution with staking mechanisms and reward distribution systems built on EVM-compatible chains.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">📈</div>
+          <div class="project-content">
+            <h3>Smart Finance</h3>
+            <p class="project-category">Backend Microservice</p>
+            <p>Scalable microservices architecture for financial data processing with high-throughput transaction handling and real-time analytics.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🎨</div>
+          <div class="project-content">
+            <h3>Narativ Lab</h3>
+            <p class="project-category">Web3 & Smart Contract</p>
+            <p>NFT minting platform with custom smart contracts enabling creative digital asset creation and management on blockchain.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">Real feedback from satisfied clients worldwide</p>
+      <div class="testimonial-container">
+        <div class="swiper testimonialSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-slide">
+                <div class="testimonial-icon">💼</div>
+                <p class="testimonial-quote">
+                  "Pranjal is the best developer I have gotten to know through this channel or other similar channels. He immediately understood how our app worked in technical detail, he started and ended his development before schedule and was generally fast, helpful and productive."
+                </p>
+                <p class="testimonial-author">Carl Lundstrom</p>
+                <p class="testimonial-role">Trading Algorithm Development Centrabit - Zurich, Switzerland</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-slide">
+                <div class="testimonial-icon">🦈</div>
+                <p class="testimonial-quote">
+                  "It has been an amazing experience exploring the project with Pranjal. Will definitely be working with him in future. Working with Pranjal is the best experience! The skills and knowledge he brings to the table is a game changer for any NFT / Web3 project."
+                </p>
+                <p class="testimonial-author">K2</p>
+                <p class="testimonial-role">Alpha Sharks - Blockchain - India</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-slide">
+                <div class="testimonial-icon">🏄</div>
+                <p class="testimonial-quote">
+                  "Our team was looking for a Web3 developer, for an NFT project and I've interviewed a few until I met Pranjal. Right from the start, he was very professional, most notably the ease of communication and transparency. From past experience, I learned that good and stable communication is super-essential when working with freelancers and if I could give 10 stars for that part alone I would. Pranjal not only did a good job and was on time, but was very patient when it came to explaining the technicalities to me, giving me professional advice, and even going outside of the scope of work within reason. I will definitely recommend Pranjal for any Solidity/Web3 job."
+                </p>
+                <p class="testimonial-author">Elior Cohen</p>
+                <p class="testimonial-role">The Little Surfers - NFT & Website - Israel</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-slide">
+                <div class="testimonial-icon">🐍</div>
+                <p class="testimonial-quote">
+                  "Pranjal was excellent, fast, great at communicating, and completed the custom automation script perfectly. I can't wait for our next project together!"
+                </p>
+                <p class="testimonial-author">James Fry</p>
+                <p class="testimonial-role">Python Custom Automation Script - USA</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-slide">
+                <div class="testimonial-icon">🦎</div>
+                <p class="testimonial-quote">
+                  "Great communication, he speaks English fluently. Delivered the project in time. Exceptional work!"
+                </p>
+                <p class="testimonial-author">Gherardo Fabrizio</p>
+                <p class="testimonial-role">Funky Salamanders - NFT & Web3 - Italy</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="about" class="section">
     <div class="container">
       <h2 class="section-title">About Us</h2>
+      <p class="section-subtitle">Innovation at the intersection of real estate and technology</p>
       <div class="about-content">
         <div class="about-text">
           <p>Surana SPG is committed to innovation at the intersection of real estate and technology. Our integrated approach ensures exceptional value through custom ERP solutions and business automation.</p>
@@ -381,84 +1071,232 @@
   <section id="contact" class="section">
     <div class="container">
       <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">Let's discuss how we can help transform your business</p>
       <div class="contact-content">
         <div class="contact-info">
           <h2>Reach Out</h2>
           <div class="contact-item">
-            <strong>Email:</strong> ps.work@suranaspg.in
-          </div>
-          <!-- <div class="contact-item">
-            <strong>Phone:</strong> +91 77910 27690
-          </div> -->
-          <div class="contact-item">
-            <strong>Address:</strong><br/>D-19/B Meera Marg, Bani Park, Jaipur, Rajasthan, India
+            <strong>Email:</strong>
+            ps.work@suranaspg.in
           </div>
           <div class="contact-item">
-            <strong>Services Available:</strong><br/>AI Solutions, Blockchain Solutions, Custom ERP Solutions, Billing Systems, Real Estate Development, Technology Consulting
+            <strong>Address:</strong>
+            D-19/B Meera Marg, Bani Park, Jaipur, Rajasthan, India
+          </div>
+          <div class="contact-item">
+            <strong>Services Available:</strong>
+            AI Solutions, Blockchain Solutions, Custom ERP Solutions, Billing Systems, Real Estate Development, Technology Consulting
           </div>
         </div>
 
         <form id="contactForm" class="contact-form">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" required />
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" required />
-  </div>
-  <div class="form-group">
-    <label for="subject">Subject</label>
-    <input type="text" name="subject" id="subject" required />
-  </div>
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea name="message" id="message" rows="5" placeholder="Tell us about your ERP, billing, or technology requirements..." required></textarea>
-  </div>
-  <button type="submit" class="submit-btn">Send Message</button>
-  <p id="formStatus" style="margin-top: 15px; color: green; display: none;">Thank you! Your message has been sent.</p>
-</form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="your.email@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" id="subject" placeholder="What is this regarding?" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="5" placeholder="Tell us about your ERP, billing, or technology requirements..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+          <p id="formStatus" style="margin-top: 15px; display: none; font-weight: 500;"></p>
+        </form>
       </div>
     </div>
   </section>
 
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/917791027690" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+    💬
+  </a>
+
   <footer>
     <div class="container">
-      <p>&copy; 2025 Surana SPG. All rights reserved. | Custom ERP Solutions | Jaipur, Rajasthan, India</p>
+      <div style="margin-bottom: 20px;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: white;">Surana SPG</h3>
+        <p style="margin-bottom: 10px;">Technology Solutions</p>
+        <p style="margin-bottom: 10px;">📧 ps.work@suranaspg.in</p>
+        <p style="margin-bottom: 15px;">📍 Jaipur, Rajasthan, India</p>
+      </div>
+      <p>&copy; 2025 Surana SPG. All rights reserved.</p>
     </div>
   </footer>
 
-</body>
-<script>
-  document.getElementById('contactForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js"></script>
+  
+  <script>
+    // Swiper initialization
+    const swiper = new Swiper('.testimonialSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
 
-    const form = e.target;
-    const formData = new FormData(form);
-    const status = document.getElementById('formStatus');
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
 
-    try {
-      const response = await fetch('https://formspree.io/f/mzzgqqjv', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json'
-        },
-        body: formData
+    // Close mobile menu when clicking a link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
       });
+    });
 
-      if (response.ok) {
-        status.style.display = 'block';
-        form.reset();
+    // Scroll to top button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    const header = document.getElementById('header');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('show');
       } else {
-        status.style.display = 'block';
-        status.style.color = 'red';
-        status.innerText = 'Oops! Something went wrong.';
+        scrollToTopBtn.classList.remove('show');
       }
-    } catch (error) {
-      status.style.display = 'block';
-      status.style.color = 'red';
-      status.innerText = 'Error submitting form.';
+
+      // Add scrolled class to header
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    
+    function highlightNavLink() {
+      const scrollY = window.scrollY;
+      
+      sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
     }
-  });
-</script>
+
+    window.addEventListener('scroll', highlightNavLink);
+
+    // Contact form
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const status = document.getElementById('formStatus');
+      const submitBtn = form.querySelector('.submit-btn');
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        const response = await fetch('https://formspree.io/f/mzzgqqjv', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: formData
+        });
+
+        if (response.ok) {
+          status.style.display = 'block';
+          status.style.color = '#10b981';
+          status.innerText = '✓ Thank you! Your message has been sent successfully.';
+          form.reset();
+        } else {
+          status.style.display = 'block';
+          status.style.color = '#ef4444';
+          status.innerText = '✗ Oops! Something went wrong. Please try again.';
+        }
+      } catch (error) {
+        status.style.display = 'block';
+        status.style.color = '#ef4444';
+        status.innerText = '✗ Error submitting form. Please check your connection.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Add animation on scroll for elements
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-card, .project-card, .stat-box').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
 </html>
