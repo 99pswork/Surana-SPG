@@ -8,36 +8,17 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23667eea'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-weight='bold'>S</text></svg>">
   
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Surana SPG offers custom ERP solutions, billing systems, real estate development and technology consulting in Jaipur, Rajasthan, India. Expert ERP implementation and software development services.">
-  <meta name="keywords" content="Jaipur ERP solutions, India ERP solutions, Custom ERP solutions, Jaipur Billing Solution, India billing solution, ERP software Jaipur, custom billing software, enterprise resource planning, real estate technology, Jaipur software development, Rajasthan ERP, business automation, inventory management system, accounting software India, CRM solutions Jaipur">
+  <meta name="description" content="Surana SPG offers custom ERP solutions, AI integration, blockchain development and real estate development in Jaipur, Rajasthan, India.">
   <meta name="theme-color" content="#667eea">
   
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content="Surana SPG - Custom ERP & Technology Solutions">
-  <meta property="og:description" content="Leading provider of custom ERP solutions, AI integration, and blockchain development in Jaipur, India">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://suranaspg.in">
-  
-  <!-- Performance Hints -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.css">
   
-  <noscript>
-    <style>
-      .service-card, .project-card, .stat-box {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-      }
-    </style>
-  </noscript>
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   
   <style>
     * {
@@ -48,7 +29,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fa;
+      background-color: #f5f7fa;
       color: #2c3e50;
       line-height: 1.7;
       overflow-x: hidden;
@@ -62,21 +43,21 @@
 
     /* Header Styles */
     header {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
       color: #2c3e50;
-      padding: 1.2rem 0;
+      padding: 1rem 0;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
       transition: all 0.3s ease;
     }
 
     header.scrolled {
-      padding: 0.8rem 0;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+      padding: 0.7rem 0;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
     }
 
     .header-content {
@@ -88,18 +69,19 @@
     .logo {
       display: flex;
       align-items: center;
-      font-weight: 700;
-      font-size: 1.7rem;
+      font-weight: 800;
+      font-size: 1.8rem;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      letter-spacing: -0.5px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 30px;
+      gap: 40px;
     }
 
     nav a {
@@ -108,33 +90,26 @@
       font-weight: 500;
       font-size: 0.95rem;
       position: relative;
-      padding: 5px 0;
       transition: color 0.3s ease;
     }
 
     nav a::after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: -5px;
       left: 0;
       width: 0;
-      height: 2px;
+      height: 3px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       transition: width 0.3s ease;
+      border-radius: 3px;
     }
 
     nav a:hover {
       color: #667eea;
     }
 
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    nav a.active {
-      color: #667eea;
-    }
-
+    nav a:hover::after,
     nav a.active::after {
       width: 100%;
     }
@@ -154,19 +129,7 @@
       border-radius: 2px;
     }
 
-    .mobile-menu-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .mobile-menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .mobile-menu-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    /* Scroll to Top Button */
+    /* Scroll Button */
     .scroll-to-top {
       position: fixed;
       bottom: 30px;
@@ -182,14 +145,14 @@
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
       transition: all 0.3s ease;
       z-index: 999;
     }
 
     .scroll-to-top:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
     }
 
     .scroll-to-top.show {
@@ -212,40 +175,25 @@
       align-items: center;
       justify-content: center;
       font-size: 1.8rem;
-      box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
       transition: all 0.3s ease;
       z-index: 998;
       text-decoration: none;
     }
 
     .whatsapp-btn:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-    }
-
-    /* Form validation styles */
-    .form-group input:invalid:not(:placeholder-shown),
-    .form-group textarea:invalid:not(:placeholder-shown) {
-      border-color: #ef4444;
-    }
-
-    .form-group input:valid:not(:placeholder-shown),
-    .form-group textarea:valid:not(:placeholder-shown) {
-      border-color: #10b981;
-    }
-
-    .submit-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
     }
 
     /* Hero Section */
     .hero {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 180px 0 100px;
+      padding: 200px 0 120px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      margin-top: 80px;
     }
 
     .hero::before {
@@ -255,8 +203,25 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-      opacity: 0.3;
+      background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="60" height="60" fill="url(%23grid)"/></svg>');
+      opacity: 0.5;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(20px); }
     }
 
     .hero-content {
@@ -265,25 +230,27 @@
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 4rem;
       margin-bottom: 1.5rem;
       color: #fff;
-      font-weight: 700;
-      animation: fadeInUp 0.8s ease;
+      font-weight: 800;
+      animation: slideInUp 0.8s ease;
+      letter-spacing: -1px;
     }
 
     .hero p {
-      font-size: 1.3rem;
-      margin-bottom: 2.5rem;
+      font-size: 1.4rem;
+      margin-bottom: 3rem;
       color: rgba(255, 255, 255, 0.95);
       font-weight: 300;
-      animation: fadeInUp 0.8s ease 0.2s backwards;
+      animation: slideInUp 0.8s ease 0.1s backwards;
+      line-height: 1.6;
     }
 
-    @keyframes fadeInUp {
+    @keyframes slideInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
       }
       to {
         opacity: 1;
@@ -294,34 +261,37 @@
     .cta-button {
       background: white;
       color: #667eea;
-      padding: 15px 40px;
+      padding: 16px 45px;
       border-radius: 50px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1.05rem;
       transition: all 0.3s ease;
       display: inline-block;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      animation: fadeInUp 0.8s ease 0.4s backwards;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      animation: slideInUp 0.8s ease 0.2s backwards;
+      border: none;
+      cursor: pointer;
     }
 
     .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     }
 
     .section {
-      padding: 100px 0;
+      padding: 120px 0;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
       color: #2c3e50;
-      font-weight: 700;
+      font-weight: 800;
       position: relative;
-      padding-bottom: 20px;
+      padding-bottom: 25px;
+      letter-spacing: -0.5px;
     }
 
     .section-title::after {
@@ -330,33 +300,33 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
+      width: 100px;
+      height: 5px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 2px;
+      border-radius: 3px;
     }
 
     .section-subtitle {
       text-align: center;
       color: #7f8c8d;
-      font-size: 1.1rem;
-      margin-bottom: 4rem;
-      font-weight: 300;
+      font-size: 1.15rem;
+      margin-bottom: 5rem;
+      font-weight: 400;
     }
 
     /* Services Grid */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 35px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
     }
 
     .service-card {
-      background: #fff;
-      padding: 40px 30px;
-      border-radius: 15px;
+      background: white;
+      padding: 45px 35px;
+      border-radius: 20px;
       text-align: center;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border: 2px solid transparent;
       position: relative;
@@ -369,10 +339,11 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
+      height: 5px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       transform: scaleX(0);
-      transition: transform 0.3s ease;
+      transform-origin: left;
+      transition: transform 0.4s ease;
     }
 
     .service-card:hover::before {
@@ -380,61 +351,63 @@
     }
 
     .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 45px rgba(102, 126, 234, 0.25);
+      transform: translateY(-12px);
+      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+      border-color: rgba(102, 126, 234, 0.1);
     }
 
     .service-icon {
-      font-size: 3rem;
-      margin-bottom: 20px;
+      font-size: 3.5rem;
+      margin-bottom: 25px;
       display: inline-block;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .service-card:hover .service-icon {
-      transform: scale(1.1) rotate(5deg);
+      transform: scale(1.15) rotate(5deg);
     }
 
     .service-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 15px;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
       color: #2c3e50;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .service-card p {
       color: #7f8c8d;
-      line-height: 1.7;
-      font-size: 0.95rem;
+      line-height: 1.8;
+      font-size: 0.96rem;
+      font-weight: 400;
     }
 
     /* Projects Grid */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 35px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
     }
 
     .project-card {
-      background: #fff;
-      border-radius: 15px;
+      background: white;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 45px rgba(102, 126, 234, 0.25);
+      transform: translateY(-12px);
+      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
     }
 
     .project-image {
-      height: 220px;
+      height: 240px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 4rem;
+      font-size: 4.5rem;
       color: white;
       position: relative;
       overflow: hidden;
@@ -447,8 +420,8 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s ease;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition: left 0.6s ease;
     }
 
     .project-card:hover .project-image::before {
@@ -456,36 +429,36 @@
     }
 
     .project-content {
-      padding: 30px;
+      padding: 35px;
     }
 
     .project-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
       color: #2c3e50;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .project-category {
       color: #667eea;
       font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 12px;
+      font-weight: 700;
+      margin-bottom: 15px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
 
     .project-content p {
       color: #7f8c8d;
-      font-size: 0.95rem;
-      line-height: 1.7;
+      font-size: 0.96rem;
+      line-height: 1.8;
     }
 
     /* Stats Section */
     .stats-section {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      padding: 80px 0;
+      padding: 100px 0;
       position: relative;
       overflow: hidden;
     }
@@ -497,13 +470,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="60" height="60" fill="url(%23grid)"/></svg>');
     }
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 60px;
       text-align: center;
       position: relative;
       z-index: 1;
@@ -514,26 +487,27 @@
     }
 
     .stat-box:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
     }
 
     .stat-box h3 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      font-weight: 700;
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+      font-weight: 800;
+      letter-spacing: -1px;
     }
 
     .stat-box p {
-      font-size: 1rem;
+      font-size: 1.05rem;
       opacity: 0.95;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.5px;
     }
 
-    /* Testimonials Section */
+    /* Testimonials */
     .testimonials-section {
-      background: #f8f9fa;
-      padding: 100px 0;
+      background: linear-gradient(to bottom, #f5f7fa 0%, #fff 100%);
+      padding: 120px 0;
     }
 
     .testimonial-container {
@@ -544,52 +518,53 @@
 
     .testimonial-slide {
       background: white;
-      padding: 50px 40px;
+      padding: 55px 45px;
       border-radius: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
       text-align: center;
       position: relative;
+      border-left: 5px solid #667eea;
+    }
+
+    .testimonial-icon {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      opacity: 0.8;
     }
 
     .testimonial-quote {
-      font-size: 1.15rem;
-      line-height: 1.9;
+      font-size: 1.1rem;
+      line-height: 2;
       color: #555;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       font-style: italic;
       font-weight: 300;
     }
 
     .testimonial-author {
-      font-weight: 600;
+      font-weight: 700;
       color: #667eea;
-      font-size: 1.2rem;
-      margin-bottom: 5px;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
     }
 
     .testimonial-role {
       color: #95a5a6;
       font-size: 0.95rem;
-      font-weight: 300;
-    }
-
-    .testimonial-icon {
-      font-size: 3rem;
-      margin-bottom: 25px;
-      opacity: 0.3;
+      font-weight: 400;
     }
 
     .swiper-pagination-bullet {
       background: #667eea;
+      opacity: 0.3;
       width: 12px;
       height: 12px;
-      opacity: 0.3;
     }
 
     .swiper-pagination-bullet-active {
       background: #667eea;
       opacity: 1;
-      width: 30px;
+      width: 32px;
       border-radius: 6px;
     }
 
@@ -597,175 +572,303 @@
     .about-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 70px;
       align-items: center;
     }
 
     .about-text p {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       color: #555;
-      line-height: 1.8;
-      font-size: 1.05rem;
+      line-height: 1.9;
+      font-size: 1.08rem;
+      font-weight: 400;
     }
 
     .about-image {
-      height: 350px;
+      height: 380px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 20px;
+      border-radius: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
+      font-size: 3.5rem;
       color: white;
-      box-shadow: 0 15px 45px rgba(102, 126, 234, 0.3);
+      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-image::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
     }
 
     /* Contact Section */
     .contact-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 60px;
       align-items: start;
     }
 
     .contact-info h2 {
-      margin-bottom: 25px;
+      margin-bottom: 35px;
       color: #2c3e50;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1.8rem;
     }
 
     .contact-item {
-      margin-bottom: 20px;
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: 10px;
+      margin-bottom: 25px;
+      padding: 22px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+      border-radius: 15px;
       border-left: 4px solid #667eea;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateX(5px);
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     }
 
     .contact-item strong {
       display: block;
       color: #2c3e50;
-      margin-bottom: 5px;
-      font-weight: 600;
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 1.05rem;
     }
 
     .contact-form {
       background: white;
-      padding: 40px;
-      border-radius: 20px;
+      padding: 50px;
+      border-radius: 25px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 2px solid rgba(102, 126, 234, 0.05);
     }
 
     .form-group {
-      margin-bottom: 25px;
+      margin-bottom: 28px;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
+      margin-bottom: 10px;
+      font-weight: 600;
       color: #2c3e50;
+      font-size: 1rem;
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 12px 15px;
+      padding: 14px 18px;
       border: 2px solid #e0e0e0;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 15px;
       font-family: 'Poppins', sans-serif;
-      transition: border-color 0.3s ease;
+      transition: all 0.3s ease;
+      background: #f8f9fa;
     }
 
     .form-group input:focus,
     .form-group textarea:focus {
       outline: none;
       border-color: #667eea;
-      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      background: white;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
     }
 
     .submit-btn {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border: none;
-      padding: 15px 40px;
+      padding: 16px 45px;
       border-radius: 50px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
-      font-size: 1rem;
-      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+      font-size: 1.05rem;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
     }
 
     .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
     }
 
-    /* Footer */
-    footer {
-      background: #2c3e50;
-      padding: 50px 0;
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* Global Clients Section */
+    .clients-section {
+      background: linear-gradient(to bottom, #f5f7fa 0%, #fff 100%);
+      padding: 120px 0;
+    }
+
+    #worldMap {
+      width: 100%;
+      height: 600px;
+      border-radius: 25px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      border: 2px solid rgba(102, 126, 234, 0.1);
+    }
+
+    .custom-tooltip {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      border: none !important;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+      padding: 8px 12px !important;
+      font-weight: 600 !important;
+      color: white !important;
+      border-radius: 8px !important;
+      font-size: 13px !important;
+      font-family: 'Poppins', sans-serif !important;
+    }
+
+    .custom-tooltip::before {
+      border-top-color: #667eea !important;
+    }
+
+    .map-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
       text-align: center;
-      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .map-stat-item {
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .map-stat-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+    }
+
+    .map-stat-item h4 {
+      font-size: 2.2rem;
+      color: #667eea;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .map-stat-item p {
+      color: #7f8c8d;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      #worldMap {
+        height: 400px;
+      }
+
+      .map-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .map-stat-item {
+        padding: 25px;
+      }
+    }
+    footer {
+      background: linear-gradient(135deg, #2c3e50 0%, #1a2332 100%);
+      padding: 70px 0 30px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    footer .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+
+    footer h3 {
+      color: white;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      font-weight: 700;
     }
 
     footer p {
       font-size: 0.95rem;
-      font-weight: 300;
+      font-weight: 400;
+      line-height: 1.8;
+      margin-bottom: 10px;
     }
 
-    /* Responsive Design */
+    footer a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #667eea;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
       .mobile-menu-toggle {
         display: flex;
       }
 
       nav ul {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: white;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 50px 0;
-        transition: left 0.3s ease;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        display: none;
       }
 
-      nav ul.active {
-        left: 0;
-      }
-
-      nav a {
-        font-size: 1.1rem;
-        padding: 15px 0;
-      }
-
-      .header-content {
-        gap: 0;
+      .hero {
+        padding: 150px 0 80px;
+        margin-top: 70px;
       }
 
       .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
 
       .hero p {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
       }
 
       .about-content,
       .contact-content {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 40px;
       }
 
-      .about-image {
-        height: 250px;
+      .section {
+        padding: 80px 0;
       }
 
       .stats-grid {
@@ -773,26 +876,8 @@
         gap: 30px;
       }
 
-      .section {
-        padding: 60px 0;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      .scroll-to-top {
-        width: 45px;
-        height: 45px;
-        bottom: 20px;
-        right: 20px;
-      }
-
-      .whatsapp-btn {
-        width: 50px;
-        height: 50px;
-        bottom: 75px;
-        right: 20px;
+      .contact-form {
+        padding: 35px;
       }
     }
 
@@ -810,12 +895,9 @@
         grid-template-columns: 1fr;
       }
 
-      .logo {
-        font-size: 1.4rem;
-      }
-
-      .contact-form {
-        padding: 25px;
+      footer .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
       }
     }
   </style>
@@ -825,13 +907,9 @@
   <header id="header">
     <div class="container">
       <div class="header-content">
-        <div class="logo">
-          Surana SPG
-        </div>
+        <div class="logo">Surana SPG</div>
         <div class="mobile-menu-toggle" id="mobileMenuToggle">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </div>
         <nav>
           <ul id="navMenu">
@@ -839,6 +917,7 @@
             <li><a href="#services" class="nav-link">Services</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
             <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+            <li><a href="#clients" class="nav-link">Clients</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
@@ -864,23 +943,23 @@
       <div class="services-grid">
         <div class="service-card">
           <div class="service-icon">🧠</div>
-          <h3>AI Solutions & Integration</h3>
+          <h3>AI Solutions</h3>
           <p>Intelligent AI tools, automation workflows, and machine learning integrations designed to optimize decision-making and boost business efficiency.</p>
         </div>
-         <div class="service-card">
+        <div class="service-card">
           <div class="service-icon">⚙️</div>
-          <h3>Custom ERP Solutions</h3>
+          <h3>Custom ERP</h3>
           <p>Tailored ERP systems, billing solutions, and business automation software designed specifically for your organization's needs.</p>
-         </div>
-         <div class="service-card">
+        </div>
+        <div class="service-card">
           <div class="service-icon">🪙</div>
-          <h3>Blockchain Development</h3>
-          <p>Secure, transparent, and future-ready blockchain solutions for real estate, finance, and business operations—enabling trust, traceability, and smart contracts.</p>
+          <h3>Blockchain Dev</h3>
+          <p>Secure, transparent, and future-ready blockchain solutions for real estate, finance, and business operations.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">💻</div>
-          <h3>Technology Solutions</h3>
-          <p>Digital transformation, software development, and IT consulting services.</p>
+          <h3>Tech Solutions</h3>
+          <p>Digital transformation, software development, and IT consulting services for modern businesses.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">🤝</div>
@@ -889,7 +968,7 @@
         </div>
         <div class="service-card">
           <div class="service-icon">🏢</div>
-          <h3>Real Estate Development</h3>
+          <h3>Real Estate Dev</h3>
           <p>Complete real estate solutions from development to investment and portfolio management.</p>
         </div>
       </div>
@@ -909,11 +988,11 @@
         </div>
         <div class="stat-box">
           <h3>30+</h3>
-          <p>Total Clients Catered</p>
+          <p>Total Clients</p>
         </div>
         <div class="stat-box">
           <h3>30+</h3>
-          <p>⭑⭑⭑⭑⭑ Reviews</p>
+          <p>5-Star Reviews</p>
         </div>
         <div class="stat-box">
           <h3>$100K+</h3>
@@ -931,54 +1010,49 @@
         <div class="project-card">
           <div class="project-image">🤖</div>
           <div class="project-content">
+            <p class="project-category">AI Dashboard</p>
             <h3>Ash Inc</h3>
-            <p class="project-category">AI Job Hunt Dashboard</p>
-            <p>Advanced AI-powered job hunting dashboard with intelligent matching algorithms and seamless Supabase integration for real-time data management.</p>
+            <p>Advanced AI-powered job hunting dashboard with intelligent matching algorithms and seamless Supabase integration.</p>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-image">💰</div>
           <div class="project-content">
-            <h3>Torque Finance</h3>
             <p class="project-category">DeFi Application</p>
-            <p>Comprehensive DeFi platform integrating multiple protocols including GMX, Stargate, and UniSwap for seamless cross-chain financial operations.</p>
+            <h3>Torque Finance</h3>
+            <p>Comprehensive DeFi platform integrating multiple protocols including GMX, Stargate, and UniSwap.</p>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-image">🦈</div>
           <div class="project-content">
+            <p class="project-category">Smart Contracts</p>
             <h3>Alpha Sharks</h3>
-            <p class="project-category">Smart Contract Development</p>
-            <p>Robust smart contract architecture for NFT marketplace with advanced tokenomics and secure blockchain implementation.</p>
+            <p>Robust smart contract architecture for NFT marketplace with advanced tokenomics.</p>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-image">🌊</div>
           <div class="project-content">
-            <h3>Sea Token & Staking</h3>
-            <p class="project-category">Web3 & Smart Contract</p>
-            <p>Complete tokenomics solution with staking mechanisms and reward distribution systems built on EVM-compatible chains.</p>
+            <p class="project-category">Web3 & Staking</p>
+            <h3>Sea Token</h3>
+            <p>Complete tokenomics solution with staking mechanisms and reward distribution systems.</p>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-image">📈</div>
           <div class="project-content">
+            <p class="project-category">Backend Services</p>
             <h3>Smart Finance</h3>
-            <p class="project-category">Backend Microservice</p>
-            <p>Scalable microservices architecture for financial data processing with high-throughput transaction handling and real-time analytics.</p>
+            <p>Scalable microservices architecture for financial data processing with real-time analytics.</p>
           </div>
         </div>
-
         <div class="project-card">
           <div class="project-image">🎨</div>
           <div class="project-content">
+            <p class="project-category">NFT Platform</p>
             <h3>Narativ Lab</h3>
-            <p class="project-category">Web3 & Smart Contract</p>
-            <p>NFT minting platform with custom smart contracts enabling creative digital asset creation and management on blockchain.</p>
+            <p>NFT minting platform with custom smart contracts enabling creative digital asset creation.</p>
           </div>
         </div>
       </div>
@@ -995,59 +1069,71 @@
             <div class="swiper-slide">
               <div class="testimonial-slide">
                 <div class="testimonial-icon">💼</div>
-                <p class="testimonial-quote">
-                  "Pranjal is the best developer I have gotten to know through this channel or other similar channels. He immediately understood how our app worked in technical detail, he started and ended his development before schedule and was generally fast, helpful and productive."
-                </p>
+                <p class="testimonial-quote">"Pranjal is the best developer I have gotten to know through this channel. He immediately understood how our app worked in technical detail, started and ended development before schedule, and was generally fast, helpful and productive."</p>
                 <p class="testimonial-author">Carl Lundstrom</p>
-                <p class="testimonial-role">Trading Algorithm Development Centrabit - Zurich, Switzerland</p>
+                <p class="testimonial-role">Trading Algorithm Development - Zurich, Switzerland</p>
               </div>
             </div>
-
             <div class="swiper-slide">
               <div class="testimonial-slide">
                 <div class="testimonial-icon">🦈</div>
-                <p class="testimonial-quote">
-                  "It has been an amazing experience exploring the project with Pranjal. Will definitely be working with him in future. Working with Pranjal is the best experience! The skills and knowledge he brings to the table is a game changer for any NFT / Web3 project."
-                </p>
+                <p class="testimonial-quote">"It has been an amazing experience exploring the project with Pranjal. Will definitely be working with him in future. The skills and knowledge he brings to the table is a game changer for any NFT / Web3 project."</p>
                 <p class="testimonial-author">K2</p>
                 <p class="testimonial-role">Alpha Sharks - Blockchain - India</p>
               </div>
             </div>
-
             <div class="swiper-slide">
               <div class="testimonial-slide">
                 <div class="testimonial-icon">🏄</div>
-                <p class="testimonial-quote">
-                  "Our team was looking for a Web3 developer, for an NFT project and I've interviewed a few until I met Pranjal. Right from the start, he was very professional, most notably the ease of communication and transparency. From past experience, I learned that good and stable communication is super-essential when working with freelancers and if I could give 10 stars for that part alone I would. Pranjal not only did a good job and was on time, but was very patient when it came to explaining the technicalities to me, giving me professional advice, and even going outside of the scope of work within reason. I will definitely recommend Pranjal for any Solidity/Web3 job."
-                </p>
+                <p class="testimonial-quote">"Pranjal was very professional with excellent communication and transparency. He completed the NFT project on time, was very patient when explaining technicalities, and I will definitely recommend him for any Solidity/Web3 job."</p>
                 <p class="testimonial-author">Elior Cohen</p>
                 <p class="testimonial-role">The Little Surfers - NFT & Website - Israel</p>
               </div>
             </div>
-
             <div class="swiper-slide">
               <div class="testimonial-slide">
                 <div class="testimonial-icon">🐍</div>
-                <p class="testimonial-quote">
-                  "Pranjal was excellent, fast, great at communicating, and completed the custom automation script perfectly. I can't wait for our next project together!"
-                </p>
+                <p class="testimonial-quote">"Pranjal was excellent, fast, great at communicating, and completed the custom automation script perfectly. I can't wait for our next project together!"</p>
                 <p class="testimonial-author">James Fry</p>
                 <p class="testimonial-role">Python Custom Automation Script - USA</p>
               </div>
             </div>
-
             <div class="swiper-slide">
               <div class="testimonial-slide">
                 <div class="testimonial-icon">🦎</div>
-                <p class="testimonial-quote">
-                  "Great communication, he speaks English fluently. Delivered the project in time. Exceptional work!"
-                </p>
+                <p class="testimonial-quote">"Great communication, fluent English, delivered on time, and exceptional work! Highly recommended."</p>
                 <p class="testimonial-author">Gherardo Fabrizio</p>
                 <p class="testimonial-role">Funky Salamanders - NFT & Web3 - Italy</p>
               </div>
             </div>
           </div>
           <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clients" class="clients-section">
+    <div class="container">
+      <h2 class="section-title">Global Client Network</h2>
+      <p class="section-subtitle">Serving clients across multiple continents</p>
+      <div id="worldMap"></div>
+      <div class="map-stats">
+        <div class="map-stat-item">
+          <h4>11</h4>
+          <p>Countries Served</p>
+        </div>
+        <div class="map-stat-item">
+          <h4>36+</h4>
+          <p>Global Clients</p>
+        </div>
+        <div class="map-stat-item">
+          <h4>6</h4>
+          <p>Continents</p>
+        </div>
+        <div class="map-stat-item">
+          <h4>24/7</h4>
+          <p>Support Available</p>
         </div>
       </div>
     </div>
@@ -1074,28 +1160,27 @@
       <p class="section-subtitle">Let's discuss how we can help transform your business</p>
       <div class="contact-content">
         <div class="contact-info">
-          <h2>Reach Out</h2>
+          <h2>Get In Touch</h2>
           <div class="contact-item">
-            <strong>Email:</strong>
+            <strong>📧 Email</strong>
             ps.work@suranaspg.in
           </div>
           <div class="contact-item">
-            <strong>Address:</strong>
+            <strong>📍 Location</strong>
             D-19/B Meera Marg, Bani Park, Jaipur, Rajasthan, India
           </div>
           <div class="contact-item">
-            <strong>Services Available:</strong>
-            AI Solutions, Blockchain Solutions, Custom ERP Solutions, Billing Systems, Real Estate Development, Technology Consulting
+            <strong>🎯 Services</strong>
+            AI Solutions, Blockchain, Custom ERP, Billing Systems, Real Estate Development, Tech Consulting
           </div>
         </div>
-
         <form id="contactForm" class="contact-form">
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Full Name</label>
             <input type="text" name="name" id="name" placeholder="Your full name" required />
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Email Address</label>
             <input type="email" name="email" id="email" placeholder="your.email@example.com" required />
           </div>
           <div class="form-group">
@@ -1104,7 +1189,7 @@
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea name="message" id="message" rows="5" placeholder="Tell us about your ERP, billing, or technology requirements..." required></textarea>
+            <textarea name="message" id="message" rows="5" placeholder="Tell us about your requirements..." required></textarea>
           </div>
           <button type="submit" class="submit-btn">Send Message</button>
           <p id="formStatus" style="margin-top: 15px; display: none; font-weight: 500;"></p>
@@ -1113,45 +1198,176 @@
     </div>
   </section>
 
-  <!-- Scroll to Top Button -->
   <button class="scroll-to-top" id="scrollToTop">↑</button>
-
-  <!-- WhatsApp Button -->
-  <a href="https://wa.me/917791027690" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
-    💬
-  </a>
+  <a href="https://wa.me/917791027690" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">💬</a>
 
   <footer>
     <div class="container">
-      <div style="margin-bottom: 20px;">
-        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: white;">Surana SPG</h3>
-        <p style="margin-bottom: 10px;">Technology Solutions</p>
-        <p style="margin-bottom: 10px;">📧 ps.work@suranaspg.in</p>
-        <p style="margin-bottom: 15px;">📍 Jaipur, Rajasthan, India</p>
+      <div>
+        <h3>Surana SPG</h3>
+        <p>Pioneering excellence in technology, AI, blockchain, ERP and realty solutions.</p>
       </div>
-      <p>&copy; 2025 Surana SPG. All rights reserved.</p>
+      <div>
+        <h3>Services</h3>
+        <p><a href="#services">AI Solutions</a></p>
+        <p><a href="#services">Blockchain Development</a></p>
+        <p><a href="#services">Custom ERP Solutions</a></p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="#home">Home</a></p>
+        <p><a href="#projects">Projects</a></p>
+        <p><a href="#contact">Contact</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Surana SPG. All rights reserved. | Crafted with precision in Jaipur, India</p>
     </div>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script>
-    // Swiper initialization
+    // World Map Initialization with English Language Map
+    const map = L.map('worldMap').setView([20, 0], 2);
+    
+    // Use CartoDB Positron map (English, clean, professional)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Client locations
+    const clientLocations = [
+      {
+        country: 'USA',
+        lat: 37.7749,
+        lng: -122.4194,
+        clients: 5,
+        color: '#667eea'
+      },
+      {
+        country: 'Canada',
+        lat: 43.6532,
+        lng: -79.3832,
+        clients: 2,
+        color: '#667eea'
+      },
+      {
+        country: 'United Kingdom',
+        lat: 51.5074,
+        lng: -0.1278,
+        clients: 2,
+        color: '#667eea'
+      },
+      {
+        country: 'Netherlands',
+        lat: 52.3676,
+        lng: 4.9041,
+        clients: 1,
+        color: '#667eea'
+      },
+      {
+        country: 'Switzerland',
+        lat: 46.9479,
+        lng: 7.4474,
+        clients: 1,
+        color: '#667eea'
+      },
+      {
+        country: 'Italy',
+        lat: 41.9028,
+        lng: 12.4964,
+        clients: 1,
+        color: '#667eea'
+      },
+      {
+        country: 'France',
+        lat: 48.8566,
+        lng: 2.3522,
+        clients: 2,
+        color: '#667eea'
+      },
+      {
+        country: 'Sweden',
+        lat: 59.3293,
+        lng: 18.0686,
+        clients: 1,
+        color: '#667eea'
+      },
+      {
+        country: 'UAE',
+        lat: 25.2048,
+        lng: 55.2708,
+        clients: 3,
+        color: '#667eea'
+      },
+      {
+        country: 'India',
+        lat: 26.9124,
+        lng: 75.7873,
+        clients: 15,
+        color: '#764ba2'
+      },
+      {
+        country: 'Israel',
+        lat: 31.7683,
+        lng: 35.2137,
+        clients: 3,
+        color: '#667eea'
+      }
+    ];
+
+    // Custom icon creation
+    function createCustomIcon(color, country) {
+      return L.divIcon({
+        className: 'custom-marker',
+        html: `<div style="
+          background: linear-gradient(135deg, ${color} 0%, rgba(118, 75, 162, 0.8) 100%);
+          color: white;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          font-size: 14px;
+          box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+          border: 2px solid white;
+          position: relative;
+        ">
+          📍
+        </div>`,
+        iconSize: [28, 28],
+        popupAnchor: [0, -15]
+      });
+    }
+
+    // Add markers for each location
+    clientLocations.forEach(location => {
+      const marker = L.marker([location.lat, location.lng], {
+        icon: createCustomIcon(location.color, location.country)
+      }).addTo(map);
+
+      // Show country name on hover using tooltip
+      marker.bindTooltip(location.country, {
+        permanent: false,
+        direction: 'top',
+        offset: [0, -10],
+        className: 'custom-tooltip'
+      });
+    });
+  </script>
+  <script>
     const swiper = new Swiper('.testimonialSwiper', {
       slidesPerView: 1,
       spaceBetween: 30,
       loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+      autoplay: { delay: 5000, disableOnInteraction: false },
+      pagination: { el: '.swiper-pagination', clickable: true },
     });
 
-    // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.getElementById('navMenu');
     
@@ -1160,66 +1376,38 @@
       navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking a link
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenuToggle.classList.remove('active');
         navMenu.classList.remove('active');
       });
     });
 
-    // Scroll to top button
     const scrollToTopBtn = document.getElementById('scrollToTop');
     const header = document.getElementById('header');
     
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        scrollToTopBtn.classList.add('show');
-      } else {
-        scrollToTopBtn.classList.remove('show');
-      }
-
-      // Add scrolled class to header
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+      scrollToTopBtn.classList.toggle('show', window.scrollY > 300);
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     scrollToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerOffset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
       });
     });
 
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    
-    function highlightNavLink() {
-      const scrollY = window.scrollY;
-      
-      sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${sectionId}`) {
-              link.classList.add('active');
-            }
-          });
-        }
-      });
-    }
-
-    window.addEventListener('scroll', highlightNavLink);
-
-    // Contact form
     document.getElementById('contactForm').addEventListener('submit', async function (e) {
       e.preventDefault();
       const form = e.target;
@@ -1245,7 +1433,7 @@
         } else {
           status.style.display = 'block';
           status.style.color = '#ef4444';
-          status.innerText = '✗ Oops! Something went wrong. Please try again.';
+          status.innerText = '✗ Something went wrong. Please try again.';
         }
       } catch (error) {
         status.style.display = 'block';
@@ -1256,47 +1444,6 @@
         submitBtn.textContent = 'Send Message';
       }
     });
-
-    // Smooth scroll for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          const headerOffset = 80;
-          const elementPosition = target.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Add animation on scroll for elements
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.service-card, .project-card, .stat-box').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
   </script>
-
 </body>
 </html>
