@@ -1,0 +1,47 @@
+# robots.txt for Surana SPG
+# https://www.suranaspg.in/robots.txt
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.suranaspg.in/sitemap.xml
+
+# Crawl-delay for specific bots (optional - prevents server overload)
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 0
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Allow OpenAI GPTBot for AI training (optional - comment out if you don't want)
+User-agent: GPTBot
+Allow: /
+
+# Allow Google's AI crawler
+User-agent: Google-Extended
+Allow: /
+
+# Allow other AI crawlers
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
