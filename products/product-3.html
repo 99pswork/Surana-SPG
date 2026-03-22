@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypeZy - Instagram Automation Platform | Surana SPG</title>
+  <meta name="description" content="HypeZy — Instagram automation that feels human. Automate DMs, grow your business on autopilot with AI-powered comment triggers, story replies, and content scheduling.">
+  <meta name="theme-color" content="#667eea">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23667eea'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-weight='bold'>S</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background-color: #f5f7fa; color: #2c3e50; line-height: 1.7; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { color: #667eea; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #764ba2; }
+
+    header { background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+    .header-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 800; font-size: 1.8rem; }
+    .logo a { text-decoration: none; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    nav ul { list-style: none; display: flex; gap: 30px; }
+    nav a { color: #2c3e50; font-weight: 500; font-size: 0.95rem; }
+    nav a:hover { color: #667eea; }
+
+    .breadcrumb { padding: 20px 0; font-size: 0.9rem; color: #7f8c8d; }
+    .breadcrumb a { color: #667eea; }
+
+    .product-hero { padding: 40px 0 80px; }
+    .product-hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; }
+    .product-icon-wrap { width: 70px; height: 70px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; margin-bottom: 25px; }
+    .product-hero h1 { font-size: 2.8rem; font-weight: 800; color: #2c3e50; margin-bottom: 20px; letter-spacing: -0.5px; }
+    .product-hero .subtitle { font-size: 1.15rem; color: #555; line-height: 1.8; margin-bottom: 30px; }
+    .product-hero-img { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(102,126,234,0.15); background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; min-height: 300px; color: white; font-size: 1.1rem; text-align: center; padding: 40px; }
+    .btn-primary-custom { display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 14px 35px; border-radius: 50px; font-weight: 700; font-size: 0.95rem; transition: all 0.3s; margin-right: 15px; margin-bottom: 10px; }
+    .btn-primary-custom:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(102,126,234,0.4); color: white; }
+    .btn-secondary-custom { display: inline-block; background: white; color: #667eea; padding: 14px 35px; border-radius: 50px; font-weight: 700; font-size: 0.95rem; border: 2px solid #667eea; transition: all 0.3s; margin-bottom: 10px; }
+    .btn-secondary-custom:hover { background: #667eea; color: white; transform: translateY(-3px); }
+
+    .pd-section-title { font-size: 2.2rem; font-weight: 800; color: #2c3e50; text-align: center; margin-bottom: 50px; position: relative; padding-bottom: 20px; }
+    .pd-section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 5px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 3px; }
+
+    .problem-section { padding: 80px 0; background: white; }
+    .problem-text { max-width: 800px; margin: 0 auto; text-align: center; }
+    .problem-text p { color: #555; font-size: 1.08rem; line-height: 1.9; margin-bottom: 20px; }
+
+    .steps-section { padding: 80px 0; }
+    .step { margin-bottom: 80px; }
+    .step-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center; }
+    .step-grid.reverse { grid-template-columns: 1fr 1.3fr; }
+    .step-grid.reverse .step-content { order: 2; }
+    .step-grid.reverse .step-img { order: 1; }
+    .step-number { display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 15px; }
+    .step h3 { font-size: 1.6rem; font-weight: 700; color: #2c3e50; margin-bottom: 15px; }
+    .step p { color: #555; line-height: 1.8; font-size: 1rem; }
+    .step-img { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); background: linear-gradient(135deg, rgba(102,126,234,0.05), rgba(118,75,162,0.05)); display: flex; align-items: center; justify-content: center; min-height: 200px; color: #7f8c8d; font-size: 0.95rem; padding: 30px; text-align: center; }
+
+    .capabilities-section { padding: 80px 0; background: white; }
+    .cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .cap-card { background: #f5f7fa; padding: 35px 30px; border-radius: 20px; transition: all 0.3s; border: 2px solid transparent; }
+    .cap-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(102,126,234,0.15); border-color: rgba(102,126,234,0.1); }
+    .cap-card h4 { font-size: 1.2rem; font-weight: 700; color: #2c3e50; margin-bottom: 10px; }
+    .cap-card p { color: #7f8c8d; font-size: 0.95rem; line-height: 1.7; }
+
+    /* Pricing */
+    .pricing-section { padding: 80px 0; background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+    .pricing-section .pd-section-title { color: white; }
+    .pricing-section .pd-section-title::after { background: rgba(255,255,255,0.5); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+    .pricing-card { background: rgba(255,255,255,0.1); padding: 40px 25px; border-radius: 20px; backdrop-filter: blur(10px); transition: all 0.3s; }
+    .pricing-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.15); }
+    .pricing-card.featured { border: 2px solid rgba(255,255,255,0.4); }
+    .pricing-value { font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; }
+    .pricing-label { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+    .pricing-desc { font-size: 0.9rem; opacity: 0.8; }
+    .pricing-note { text-align: center; margin-top: 25px; font-size: 0.875rem; opacity: 0.6; }
+
+    /* Comparison */
+    .comparison-section { padding: 80px 0; }
+    .comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 900px; margin: 0 auto; }
+    .comparison-card { background: white; padding: 35px 25px; border-radius: 20px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.06); transition: all 0.3s; }
+    .comparison-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(102,126,234,0.15); }
+    .comparison-icon { font-size: 2rem; margin-bottom: 12px; }
+    .comparison-card h4 { font-size: 1.1rem; font-weight: 700; color: #2c3e50; margin-bottom: 10px; }
+    .comparison-card p { color: #7f8c8d; font-size: 0.9rem; line-height: 1.7; }
+
+    .audience-section { padding: 80px 0; background: white; }
+    .audience-list { max-width: 700px; margin: 0 auto; list-style: none; }
+    .audience-list li { padding: 15px 20px; margin-bottom: 12px; background: #f5f7fa; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-left: 4px solid #667eea; font-size: 1rem; color: #555; }
+
+    .tech-section { padding: 60px 0; }
+    .tech-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .tech-tag { background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1)); color: #667eea; padding: 10px 22px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; }
+
+    .cta-section { padding: 80px 0; text-align: center; background: white; }
+    .cta-section h2 { font-size: 2rem; font-weight: 800; color: #2c3e50; margin-bottom: 15px; }
+    .cta-section p { color: #7f8c8d; font-size: 1.1rem; margin-bottom: 30px; }
+    .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+
+    .back-link { padding: 30px 0 60px; text-align: center; }
+    .back-link a { color: #667eea; font-weight: 600; font-size: 1rem; }
+
+    footer { background: linear-gradient(135deg, #2c3e50, #1a2332); padding: 40px 0; color: rgba(255,255,255,0.7); text-align: center; font-size: 0.9rem; }
+
+    @media (max-width: 768px) {
+      .product-hero-grid, .step-grid, .step-grid.reverse { grid-template-columns: 1fr; }
+      .step-grid.reverse .step-content { order: 1; }
+      .step-grid.reverse .step-img { order: 2; }
+      .product-hero h1 { font-size: 2rem; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo"><a href="../index.html">Surana SPG</a></div>
+        <nav>
+          <ul>
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#products">Products</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: 80px;">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="../index.html">Home</a> <span>›</span>
+        <a href="../index.html#products">Products</a> <span>›</span>
+        <span style="color: #2c3e50;">HypeZy</span>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="product-hero">
+      <div class="container">
+        <div class="product-hero-grid">
+          <div>
+            <div class="product-icon-wrap">📸</div>
+            <h1>HypeZy</h1>
+            <p class="subtitle">Instagram automation that feels human. Turn comments into conversations, engage followers instantly, and scale your Instagram presence with AI-powered automation.</p>
+            <a href="https://hypezy.in/" target="_blank" rel="noopener" class="btn-primary-custom">Visit HypeZy</a>
+            <a href="#features" class="btn-secondary-custom">See Features</a>
+          </div>
+          <div class="product-hero-img">
+            <span>Product Screenshot</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="problem-section">
+      <div class="container">
+        <h2 class="pd-section-title">The Problem</h2>
+        <div class="problem-text">
+          <p>Instagram is where your audience lives — but engaging them manually is a full-time job. Every comment is a potential customer, every story mention an opportunity, every DM a lead. But replying to hundreds of interactions a day? That doesn't scale.</p>
+          <p>Existing tools like ManyChat charge per-contact, so your costs spiral as you grow. At 10,000 contacts, you're paying $65+/month. And their complex flow builders make simple automations feel like rocket science.</p>
+          <p><strong>HypeZy fixes both problems — flat-rate pricing, dead-simple setup, and automations that feel genuinely human.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="steps-section">
+      <div class="container">
+        <h2 class="pd-section-title">How It Works</h2>
+
+        <div class="step">
+          <div class="step-grid">
+            <div class="step-content">
+              <span class="step-number">Step 1</span>
+              <h3>Connect Your Instagram</h3>
+              <p>Securely link your Instagram Business or Creator account via Meta's official OAuth in under 30 seconds. No password sharing, no risk of account suspension. Your account stays safe because we use the same API that Meta provides to verified partners.</p>
+            </div>
+            <div class="step-img">
+              <span>Screenshot</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-grid reverse">
+            <div class="step-content">
+              <span class="step-number">Step 2</span>
+              <h3>Set Up Automations</h3>
+              <p>Configure triggers for comments, keywords, story replies, and new followers. When someone comments "price" on your post, HypeZy instantly sends a personalized DM with your pricing. When someone mentions you in their story, it auto-replies with a thank you. No complex flow builders — just simple, powerful rules.</p>
+            </div>
+            <div class="step-img">
+              <span>Screenshot</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-grid">
+            <div class="step-content">
+              <span class="step-number">Step 3</span>
+              <h3>Watch It Scale</h3>
+              <p>Track real-time results as automations engage your audience 24/7. Monitor DMs sent, conversations started, leads captured, and follower growth — all from a centralized performance dashboard. Your Instagram works for you even while you sleep.</p>
+            </div>
+            <div class="step-img">
+              <span>Screenshot</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="features" class="capabilities-section">
+      <div class="container">
+        <h2 class="pd-section-title">Key Features</h2>
+        <div class="cap-grid">
+          <div class="cap-card">
+            <h4>Auto DM on Comment</h4>
+            <p>Automatically send personalized DMs when someone comments on your posts. Perfect for lead generation and engagement at scale.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Keyword Triggers</h4>
+            <p>Set up smart triggers based on specific keywords in comments or DMs. Automate responses for common queries like "price", "link", or "details".</p>
+          </div>
+          <div class="cap-card">
+            <h4>Story Reply DMs</h4>
+            <p>Automatically respond to story mentions and replies. Never miss an opportunity to engage with your audience when they interact with your stories.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Post Scheduler & Calendar</h4>
+            <p>Schedule posts, reels, and carousels ahead of time. Plan your content strategy visually with Kanban boards and monthly calendar views.</p>
+          </div>
+          <div class="cap-card">
+            <h4>AI Caption Writer</h4>
+            <p>Generate engaging captions instantly with AI. Save hours of creative work and maintain a consistent posting schedule effortlessly.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Advanced Analytics</h4>
+            <p>Performance dashboard with growth metrics, engagement data, audience demographics, and interaction tracking — all in real time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+      <div class="container">
+        <h2 class="pd-section-title">Simple, Flat-Rate Pricing</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-value">Free</div>
+            <div class="pricing-label">Starter Plan</div>
+            <div class="pricing-desc">5 automations, unlimited DMs</div>
+          </div>
+          <div class="pricing-card featured">
+            <div class="pricing-value">&#8377;499</div>
+            <div class="pricing-label">Creator Plan /month</div>
+            <div class="pricing-desc">Unlimited automations + advanced analytics</div>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-value">Custom</div>
+            <div class="pricing-label">Enterprise Plan</div>
+            <div class="pricing-desc">Multi-account, dedicated support + marketing manager</div>
+          </div>
+        </div>
+        <p class="pricing-note">No setup fees. Cancel anytime. Price stays the same whether you have 100 or 1 million subscribers.</p>
+      </div>
+    </section>
+
+    <!-- Why HypeZy Over ManyChat -->
+    <section class="comparison-section">
+      <div class="container">
+        <h2 class="pd-section-title">Why HypeZy Over ManyChat?</h2>
+        <div class="comparison-grid">
+          <div class="comparison-card">
+            <div class="comparison-icon">💰</div>
+            <h4>Flat-Rate Pricing</h4>
+            <p>ManyChat charges per-contact ($65+ at 10K contacts). HypeZy is flat &#8377;499/mo regardless of list size.</p>
+          </div>
+          <div class="comparison-card">
+            <div class="comparison-icon">📱</div>
+            <h4>Modern & Simple</h4>
+            <p>No complex flow builders. Set up automations in minutes, not hours.</p>
+          </div>
+          <div class="comparison-card">
+            <div class="comparison-icon">📅</div>
+            <h4>Built-In Scheduler</h4>
+            <p>Content calendar, AI captions, and post scheduling included. ManyChat doesn't offer this.</p>
+          </div>
+          <div class="comparison-card">
+            <div class="comparison-icon">🛡️</div>
+            <h4>Meta Official API</h4>
+            <p>Uses Meta's official Instagram Graph API. No account bans, no password sharing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section class="audience-section">
+      <div class="container">
+        <h2 class="pd-section-title">Who It's For</h2>
+        <ul class="audience-list">
+          <li>Coaches & consultants building inbound DM funnels and delivering lead magnets via keyword triggers</li>
+          <li>E-commerce brands automating product discovery via DMs and recovering abandoned carts</li>
+          <li>Local businesses — restaurants, salons, gyms automating bookings and appointments from Instagram</li>
+          <li>Personal brands and creators growing email lists and delivering free resources on autopilot</li>
+          <li>Agencies managing multiple Instagram accounts via the Enterprise plan</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-section">
+      <div class="container">
+        <h2 class="pd-section-title">Tech Stack</h2>
+        <div class="tech-tags">
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Meta Graph API</span>
+          <span class="tech-tag">OAuth 2.0</span>
+          <span class="tech-tag">AI / LLM</span>
+          <span class="tech-tag">Instagram Automation</span>
+          <span class="tech-tag">SaaS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to automate your Instagram growth?</h2>
+        <p>Start with 700 free DM automations. No credit card required.</p>
+        <div class="cta-buttons">
+          <a href="https://hypezy.in/" target="_blank" rel="noopener" class="btn-primary-custom">Start For Free</a>
+          <a href="../index.html#contact" class="btn-secondary-custom">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="back-link">
+      <a href="../index.html#products">← Back to Products</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Surana SPG. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

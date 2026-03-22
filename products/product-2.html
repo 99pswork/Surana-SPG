@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Management System - Enterprise ERP Solution | Surana SPG</title>
+  <meta name="description" content="Order Management System — a comprehensive ERP platform for B2B distributors, wholesalers, and manufacturers. Unifies sales, procurement, inventory, logistics, and analytics.">
+  <meta name="theme-color" content="#667eea">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23667eea'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-weight='bold'>S</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background-color: #f5f7fa; color: #2c3e50; line-height: 1.7; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { color: #667eea; text-decoration: none; transition: color 0.3s; }
+    a:hover { color: #764ba2; }
+
+    header { background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+    .header-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 800; font-size: 1.8rem; }
+    .logo a { text-decoration: none; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    nav ul { list-style: none; display: flex; gap: 30px; }
+    nav a { color: #2c3e50; font-weight: 500; font-size: 0.95rem; }
+    nav a:hover { color: #667eea; }
+
+    .breadcrumb { padding: 20px 0; font-size: 0.9rem; color: #7f8c8d; }
+    .breadcrumb a { color: #667eea; }
+
+    .product-hero { padding: 40px 0 80px; }
+    .product-hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; }
+    .product-icon-wrap { width: 70px; height: 70px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; margin-bottom: 25px; }
+    .product-hero h1 { font-size: 2.8rem; font-weight: 800; color: #2c3e50; margin-bottom: 20px; letter-spacing: -0.5px; }
+    .product-hero .subtitle { font-size: 1.15rem; color: #555; line-height: 1.8; margin-bottom: 30px; }
+    .product-hero-img { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(102,126,234,0.15); background: white; padding: 20px; }
+    .product-hero-img img { width: 100%; height: auto; display: block; }
+    .btn-primary-custom { display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 14px 35px; border-radius: 50px; font-weight: 700; font-size: 0.95rem; transition: all 0.3s; margin-right: 15px; margin-bottom: 10px; }
+    .btn-primary-custom:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(102,126,234,0.4); color: white; }
+    .btn-secondary-custom { display: inline-block; background: white; color: #667eea; padding: 14px 35px; border-radius: 50px; font-weight: 700; font-size: 0.95rem; border: 2px solid #667eea; transition: all 0.3s; margin-bottom: 10px; }
+    .btn-secondary-custom:hover { background: #667eea; color: white; transform: translateY(-3px); }
+
+    .pd-section-title { font-size: 2.2rem; font-weight: 800; color: #2c3e50; text-align: center; margin-bottom: 50px; position: relative; padding-bottom: 20px; }
+    .pd-section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 5px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 3px; }
+
+    .problem-section { padding: 80px 0; background: white; }
+    .problem-text { max-width: 800px; margin: 0 auto; text-align: center; }
+    .problem-text p { color: #555; font-size: 1.08rem; line-height: 1.9; margin-bottom: 20px; }
+
+    /* Order Flow */
+    .flow-section { padding: 60px 0; }
+    .flow-bar { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; }
+    .flow-step { background: white; padding: 12px 20px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; color: #667eea; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+    .flow-step--active { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+    .flow-arrow { color: #667eea; font-weight: 700; }
+
+    .steps-section { padding: 80px 0; }
+    .step { margin-bottom: 80px; }
+    .step-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .step-grid.reverse { grid-template-columns: 1fr 1fr; }
+    .step-grid.reverse .step-content { order: 2; }
+    .step-grid.reverse .step-img { order: 1; }
+    .step-number { display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 15px; }
+    .step h3 { font-size: 1.6rem; font-weight: 700; color: #2c3e50; margin-bottom: 15px; }
+    .step p { color: #555; line-height: 1.8; font-size: 1rem; }
+    .step-img { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); background: white; padding: 15px; }
+    .step-img img { width: 100%; height: auto; display: block; }
+
+    .capabilities-section { padding: 80px 0; background: white; }
+    .cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .cap-card { background: #f5f7fa; padding: 35px 30px; border-radius: 20px; transition: all 0.3s; border: 2px solid transparent; }
+    .cap-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(102,126,234,0.15); border-color: rgba(102,126,234,0.1); }
+    .cap-card h4 { font-size: 1.2rem; font-weight: 700; color: #2c3e50; margin-bottom: 10px; }
+    .cap-card p { color: #7f8c8d; font-size: 0.95rem; line-height: 1.7; }
+
+    /* Roles */
+    .roles-section { padding: 80px 0; }
+    .roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 25px; }
+    .role-card { background: white; padding: 30px 20px; border-radius: 20px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.06); transition: all 0.3s; }
+    .role-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(102,126,234,0.15); }
+    .role-icon { font-size: 2rem; margin-bottom: 12px; }
+    .role-card h4 { font-size: 1.05rem; font-weight: 700; color: #2c3e50; margin-bottom: 8px; }
+    .role-card p { color: #7f8c8d; font-size: 0.85rem; line-height: 1.6; }
+
+    .impact-section { padding: 80px 0; background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+    .impact-section .pd-section-title { color: white; }
+    .impact-section .pd-section-title::after { background: rgba(255,255,255,0.5); }
+    .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 30px; text-align: center; }
+    .impact-card { background: rgba(255,255,255,0.1); padding: 30px 20px; border-radius: 20px; backdrop-filter: blur(10px); }
+    .impact-value { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
+    .impact-label { font-size: 0.95rem; opacity: 0.95; font-weight: 500; }
+
+    .audience-section { padding: 80px 0; }
+    .audience-list { max-width: 700px; margin: 0 auto; list-style: none; }
+    .audience-list li { padding: 15px 20px; margin-bottom: 12px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-left: 4px solid #667eea; font-size: 1rem; color: #555; }
+
+    .tech-section { padding: 60px 0; background: white; }
+    .tech-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .tech-tag { background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1)); color: #667eea; padding: 10px 22px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; }
+
+    .cta-section { padding: 80px 0; text-align: center; }
+    .cta-section h2 { font-size: 2rem; font-weight: 800; color: #2c3e50; margin-bottom: 15px; }
+    .cta-section p { color: #7f8c8d; font-size: 1.1rem; margin-bottom: 30px; }
+
+    .back-link { padding: 30px 0 60px; text-align: center; }
+    .back-link a { color: #667eea; font-weight: 600; font-size: 1rem; }
+
+    footer { background: linear-gradient(135deg, #2c3e50, #1a2332); padding: 40px 0; color: rgba(255,255,255,0.7); text-align: center; font-size: 0.9rem; }
+
+    @media (max-width: 768px) {
+      .product-hero-grid, .step-grid, .step-grid.reverse { grid-template-columns: 1fr; }
+      .step-grid.reverse .step-content { order: 1; }
+      .step-grid.reverse .step-img { order: 2; }
+      .product-hero h1 { font-size: 2rem; }
+      nav ul { display: none; }
+      .flow-bar { gap: 5px; }
+      .flow-step { padding: 8px 12px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo"><a href="../index.html">Surana SPG</a></div>
+        <nav>
+          <ul>
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#products">Products</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: 80px;">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="../index.html">Home</a> <span>›</span>
+        <a href="../index.html#products">Products</a> <span>›</span>
+        <span style="color: #2c3e50;">Order Management System</span>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="product-hero">
+      <div class="container">
+        <div class="product-hero-grid">
+          <div>
+            <div class="product-icon-wrap">🏭</div>
+            <h1>Order Management System</h1>
+            <p class="subtitle">Streamline your business from inquiry to invoice. A comprehensive ERP platform for B2B distributors, wholesalers, and manufacturers managing high-volume orders.</p>
+            <a href="#capabilities" class="btn-primary-custom">Explore Capabilities</a>
+            <a href="../index.html#contact" class="btn-secondary-custom">Get In Touch</a>
+          </div>
+          <div class="product-hero-img">
+            <img src="../assets/img/ERP Marketing /dashboard-overview.svg" alt="ERP Dashboard - Real-time business overview with KPIs and analytics">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="problem-section">
+      <div class="container">
+        <h2 class="pd-section-title">The Problem We Solve</h2>
+        <div class="problem-text">
+          <p>Running a distribution or wholesale business means juggling dozens of moving parts: purchase orders from suppliers, stock across multiple warehouses, customer inquiries that need fast turnaround, delivery trucks on the road, challans that need to be generated and verified, and invoices that must reconcile with GST compliance.</p>
+          <p>Most businesses cobble this together with spreadsheets, WhatsApp groups, and disconnected software. The result? Lost orders, inventory mismatches, delayed deliveries, and revenue leakage. <strong>OMS replaces all of that with one unified platform.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Lifecycle -->
+    <section class="flow-section">
+      <div class="container">
+        <h2 class="pd-section-title">End-to-End Order Lifecycle</h2>
+        <div class="flow-bar">
+          <div class="flow-step">Inquiry</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Order Created</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Delivery Assigned</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Loading</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">In Transit</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Delivered</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step flow-step--active">Invoiced</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Capabilities -->
+    <section id="capabilities" class="steps-section">
+      <div class="container">
+        <h2 class="pd-section-title">Core Capabilities</h2>
+
+        <div class="step">
+          <div class="step-grid">
+            <div class="step-content">
+              <span class="step-number">Dashboard</span>
+              <h3>Real-Time Business Overview</h3>
+              <p>Total revenue, order counts, customer metrics, and stock levels at a glance. Sales trend charts, order status donut charts, and a recent orders table — everything your team needs to start the day with full visibility.</p>
+            </div>
+            <div class="step-img">
+              <img src="../assets/img/ERP Marketing /dashboard-overview.svg" alt="ERP Dashboard with KPIs, sales trends, order status" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-grid reverse">
+            <div class="step-content">
+              <span class="step-number">Sales Analytics</span>
+              <h3>Seven Specialized Dashboards</h3>
+              <p>Data-driven decision making with dedicated dashboards for sales, purchase, delivery, inventory, financial, customer, and inquiry analytics. Revenue trends, product performance, top customers, conversion rates — all with flexible date filtering.</p>
+            </div>
+            <div class="step-img">
+              <img src="../assets/img/ERP Marketing /sales-analytics.svg" alt="Sales Analytics dashboard" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-grid">
+            <div class="step-content">
+              <span class="step-number">Procurement</span>
+              <h3>Purchase & Procurement Management</h3>
+              <p>Manage your entire supply chain with a structured workflow: Purchase Advice, Purchase Orders with line items and GST calculations, Purchase Challans with weight verification, and a complete Purchase Daybook audit trail.</p>
+            </div>
+            <div class="step-img">
+              <img src="../assets/img/ERP Marketing /purchase-orders.svg" alt="Purchase Order Management" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-grid reverse">
+            <div class="step-content">
+              <span class="step-number">Inventory</span>
+              <h3>Multi-Warehouse Inventory</h3>
+              <p>Real-time stock visibility across all warehouse locations. Product catalogue with categories, sizes, and HSN codes. Low-stock alerts, inventory transfer workflows between warehouses, and total stock value tracking.</p>
+            </div>
+            <div class="step-img">
+              <img src="../assets/img/ERP Marketing /inventory-management.svg" alt="Inventory and Warehouse management" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-grid">
+            <div class="step-content">
+              <span class="step-number">Logistics</span>
+              <h3>Delivery & Logistics</h3>
+              <p>Purpose-built for businesses managing their own fleet. Truck loading management, delivery challan generation, personnel assignment, weight reconciliation, and route tracking with vehicle and driver management.</p>
+            </div>
+            <div class="step-img">
+              <img src="../assets/img/ERP Marketing /delivery-tracking.svg" alt="Delivery and Logistics tracking" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-grid reverse">
+            <div class="step-content">
+              <span class="step-number">Customers</span>
+              <h3>Customer & Inquiry Management</h3>
+              <p>Complete customer database with contact history, order patterns, and revenue analytics. Customer segmentation (Premium, Regular, New, Inactive), inquiry management with follow-up tracking, and a streamlined lead-to-order pipeline.</p>
+            </div>
+            <div class="step-img">
+              <img src="../assets/img/ERP Marketing /customer-management.svg" alt="Customer Management" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Sets Us Apart -->
+    <section class="capabilities-section">
+      <div class="container">
+        <h2 class="pd-section-title">What Sets Us Apart</h2>
+        <div class="cap-grid">
+          <div class="cap-card">
+            <h4>Built for Indian B2B</h4>
+            <p>GST compliance, HSN codes, purchase daybooks, and challan generation are native — not bolted-on afterthoughts. INR formatting and weight-based pricing built in.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Operational Depth</h4>
+            <p>Not a glorified spreadsheet. Handles truck loading optimization, weight reconciliation, and multi-stage purchase-to-challan pipelines.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Real-Time Visibility</h4>
+            <p>Sales knows what's in stock. Delivery knows what's been ordered. Accounts know what's been invoiced. Everyone works from the same source of truth.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Excel Import/Export</h4>
+            <p>Bulk import and export via .xlsx, template-based data onboarding for rapid setup, and paginated tables that handle thousands of records.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Location-Aware</h4>
+            <p>Integrated OpenStreetMap support for warehouse and customer locations, enabling geographic visualization and location-based decisions.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Granular Access Control</h4>
+            <p>Six built-in roles from Super Admin to Labour. Permissions enforced at navigation, page, and action level — UI adapts dynamically per user.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roles -->
+    <section class="roles-section">
+      <div class="container">
+        <h2 class="pd-section-title">Role-Based Access Control</h2>
+        <div class="roles-grid">
+          <div class="role-card">
+            <div class="role-icon">⭐</div>
+            <h4>Super Admin</h4>
+            <p>Full system access including IP management and user administration</p>
+          </div>
+          <div class="role-card">
+            <div class="role-icon">⚙️</div>
+            <h4>Admin</h4>
+            <p>All features with user management capabilities</p>
+          </div>
+          <div class="role-card">
+            <div class="role-icon">🛒</div>
+            <h4>Sales Staff</h4>
+            <p>Orders, inquiries, customers, and purchase operations</p>
+          </div>
+          <div class="role-card">
+            <div class="role-icon">🧮</div>
+            <h4>Account User</h4>
+            <p>Read-only access to orders, purchases, and financial records</p>
+          </div>
+          <div class="role-card">
+            <div class="role-icon">🚚</div>
+            <h4>Delivery Supervisor</h4>
+            <p>Delivery management, challans, and purchase workflows</p>
+          </div>
+          <div class="role-card">
+            <div class="role-icon">👷</div>
+            <h4>Labour</h4>
+            <p>Basic delivery assistance functions</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform Stats -->
+    <section class="impact-section">
+      <div class="container">
+        <h2 class="pd-section-title">Platform at a Glance</h2>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <div class="impact-value">10+</div>
+            <div class="impact-label">Modules</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-value">29</div>
+            <div class="impact-label">Pages</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-value">7</div>
+            <div class="impact-label">Analytics Dashboards</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-value">6</div>
+            <div class="impact-label">User Roles</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-value">25+</div>
+            <div class="impact-label">Custom Forms</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-value">20+</div>
+            <div class="impact-label">API Integrations</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section class="audience-section">
+      <div class="container">
+        <h2 class="pd-section-title">Who It's For</h2>
+        <ul class="audience-list">
+          <li>Steel & building materials distribution</li>
+          <li>Wholesale & commodity trading</li>
+          <li>Manufacturing with direct sales channels</li>
+          <li>FMCG distribution networks</li>
+          <li>Third-party logistics (3PL) providers</li>
+          <li>Pharmaceutical & food supply chains</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-section">
+      <div class="container">
+        <h2 class="pd-section-title">Technical Highlights</h2>
+        <div class="tech-tags">
+          <span class="tech-tag">React 19</span>
+          <span class="tech-tag">MUI X-Charts</span>
+          <span class="tech-tag">JWT Auth</span>
+          <span class="tech-tag">Excel Import/Export</span>
+          <span class="tech-tag">Leaflet + OpenStreetMap</span>
+          <span class="tech-tag">Email Notifications</span>
+          <span class="tech-tag">RBAC</span>
+          <span class="tech-tag">Print-Ready Documents</span>
+          <span class="tech-tag">Responsive Design</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Transform your supply chain operations</h2>
+        <p>From the first inquiry to the final invoice — every step, every team, every location — unified in one system.</p>
+        <a href="../index.html#contact" class="btn-primary-custom">Get In Touch</a>
+      </div>
+    </section>
+
+    <div class="back-link">
+      <a href="../index.html#products">← Back to Products</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Surana SPG. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
